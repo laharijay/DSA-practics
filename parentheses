@@ -1,0 +1,37 @@
+# 2. Given a string str of length N, consisting of ‘(‘ and ‘)‘ only, the task is to check whether it is balanced or not.
+ 
+# Eg:
+ 
+# Input: str = “((()))()()” 
+# Output: Balanced
+# Input: str = “())((())” 
+# Output: Not Balanced
+
+
+#  str = "((()))()()"
+# str = "(())"
+ 
+ str = "(())((())"
+
+
+ char_arr = str.chars
+
+#  count_open = 0
+#  count_close = 0
+ stack = []
+ 
+ char_arr.each do |char|
+   if stack.last == "(" &&  char == ")"
+        stack.pop
+    elsif char == "("
+        stack.push("(")
+    else
+        stack.push(")")
+   end
+ end
+ 
+if stack.empty?
+     p "Balanced"
+ else
+     p "Not Balanced"
+ end
